@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>resume</title>
+    <meta charset="UTF-8">
+    <link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <style>
+        *{margin:0;padding:0;}
+        body{background:#ffffff;font-size:20px;}
+        a:link,a:visited,a:hover,a:active{outline:none;}
+        .nav{position: fixed;}
+        .caidan {width:200px; height:200px; margin:0px 0 250px 0px; position:relative;z-index:100;}
+        .caidan1 {width:210px; height:210px; overflow:hidden; position:absolute; left:0; top:0; z-index:100;-webkit-transition:1s;-moz-transition:1s;-ms-transition:1s;-o-transition:1s;transition:1s;}
+        .caidan:hover .caidan1 {width:510px; height:510px;-webkit-transition:0s;-moz-transition:0s;-ms-transition:0s;-o-transition:0s;transition:0s;}
+        .caidan ul {list-style:none; position:absolute; left:0; top:0; width:0; height:0;}
+        .caidan ul li {border-radius:0 0 100px 0; width:0; height:0;}
+        .caidan ul li a {z-index:99;color:#000; text-decoration:none; font:bold 15px/40px 宋体, sans-serif; text-align:center; box-shadow:15px 15px 15px rgba(0,0,0,0.4);-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;transform-origin:0 0;}
+        .caidan ul.p1 li {position:absolute; left:0; top:0;}
+        .caidan li.s1 > a {margin-left:0px;position:absolute; display:block; width:100px; height:100px; background:#c8c8c8; border-radius:0 0 100px 0;font:bold 20px/60px Blackadder ITC,宋体;}
+        .caidan li.s2 > a {position:absolute; display:block; width:100px; padding-left:100px; height:200px; background:#888; border-radius:0 0 300px 0;}
+        .caidan ul ul {z-index:98;-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;transform-origin:0 0;
+            -webkit-transform:rotate(90deg);-moz-transform:rotateZ(90deg);-ms-transform:rotate(90deg);-o-transform:rotate(90deg);transform:rotate(90deg);
+            -webkit-transition:1s;-moz-transition:1s;-ms-transition:1s;-o-transition:1s;transition:1s;}
+        .caidan li.s2:nth-of-type(5) > a {background:#ccc;-webkit-transform:rotate(72deg);-moz-transform:rotateZ(72deg);-ms-transform:rotate(72deg);-o-transform:rotate(72deg);transform:rotate(72deg);}
+        .caidan li.s2:nth-of-type(4) > a {background:#bbb;-webkit-transform:rotate(54deg);-moz-transform:rotateZ(54deg);-ms-transform:rotate(54deg);-o-transform:rotate(54deg);transform:rotate(54deg);}
+        .caidan li.s2:nth-of-type(3) > a {background:#aaa;-webkit-transform:rotate(36deg);-moz-transform:rotateZ(36deg);-ms-transform:rotate(36deg);-o-transform:rotate(36deg);transform:rotate(36deg);}
+        .caidan li.s2:nth-of-type(2) > a {background:#999;-webkit-transform:rotate(18deg);-moz-transform:rotateZ(18deg);-ms-transform:rotate(18deg);-o-transform:rotate(18deg);transform:rotate(18deg);}
+        .caidan li.s1:hover ul.p2 {-webkit-transform:rotate(0deg);-moz-transform:rotateZ(0deg);-ms-transform:rotate(0deg);-o-transform:rotate(0deg);transform:rotate(0deg);}
+        .caidan li.s2:nth-of-type(5) > a:hover{background-color: #eee}
+        .caidan li.s2:nth-of-type(4) > a:hover{background-color: #ddd}
+        .caidan li.s2:nth-of-type(3) > a:hover{background-color: #ccc}
+        .caidan li.s2:nth-of-type(2) > a:hover{background-color: #bbb}
+        .caidan li.s2:nth-of-type(1) > a:hover{background-color: #aaa}
+        .caidan li.s1 > a:hover{background-color: #ddd}
+        .caidan span {display:block;-webkit-transform:rotate(5deg);-moz-transform:rotateZ(5deg);-ms-transform:rotate(5deg);-o-transform:rotate(5deg);transform:rotate(5deg);}
+        .mybody{width: 800px;margin:0 auto;}
+        .biaotou{text-align: center;font:bold 50px/100px 黑体;height: 100px;
+            background: -webkit-linear-gradient(left,#ccc, #fff, #ccc);
+            background: -o-linear-gradient(left,#ccc, #fff, #ccc);
+            background: -moz-linear-gradient(left,#ccc, #fff, #ccc);
+            background: linear-gradient(left,#ccc, #fff, #ccc);}
+        .gerenxinxi{margin-top: 20px;}
+        .xinxi1{width: 120px;float: left;line-height: 35px;}
+        .xinxi2{width: 220px;float: left;line-height: 35px;}
+        .xinxi3{width: 120px;float: left;line-height: 35px;}
+        .xinxi4{width: 220px;float: left;line-height: 35px;}
+        .xinxi5{width: 120px;float: right;}
+        .xinxi5 img{width:120px;}
+        .clear{clear: both;}
+        #body1{margin-top: 10px;}
+        #body2{margin-top: 30px;line-height: 35px;}
+        .tou{font-size: 30px;height: 50px;line-height: 50px;
+            background: -webkit-linear-gradient(left,#bbb, #eee);
+            background: -o-linear-gradient(left,#bbb, #eee);
+            background: -moz-linear-gradient(left,#bbb, #eee);
+            background: linear-gradient(left,#bbb, #eee);}
+        #body3{margin-top: 30px;line-height: 35px;}
+        #tabs{margin-top: 10px;}
+        #tabs ul li{background-color: #fff;color: #000;border-color:#aaa}
+        #tabs ul li.ui-tabs-active a {background:#fff;color: #666;outline:none;}
+        #body4{margin-top: 30px;line-height: 35px;}
+        #body5{margin-top: 30px;line-height: 35px;}
+        .weibu{text-align: center;font:bold 50px/100px 黑体;height: 100px;margin: 0 auto;
+            background: -webkit-linear-gradient(left,#ccc, #fff, #ccc);
+            background: -o-linear-gradient(left,#ccc, #fff, #ccc);
+            background: -moz-linear-gradient(left,#ccc, #fff, #ccc);
+            background: linear-gradient(left,#ccc, #fff, #ccc);}
+        .weibu li img:hover{width: 200px;}
+    </style>
+    <script>
+        $(function() {
+            $("#dianji1").click(function () {
+                $("html,body").animate({scrollTop: $("#body1").offset().top}, 1000);
+            });
+            $("#dianji2").click(function () {
+                $("html,body").animate({scrollTop: $("#body2").offset().top}, 1000);
+            });
+            $("#dianji3").click(function () {
+                $("html,body").animate({scrollTop: $("#body3").offset().top}, 1000);
+            });
+            $("#dianji4").click(function () {
+                $("html,body").animate({scrollTop: $("#body4").offset().top}, 1000);
+            });
+            $("#dianji5").click(function () {
+                $("html,body").animate({scrollTop: $("#body5").offset().top}, 1000);
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#tabs").tabs ({
+                fx: { opacity: "toggle", height: "toggle" },event: "mousemove"
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="nav">
+        <div class="caidan">
+            <div class="caidan1">
+                <ul class="p1">
+                    <li class="s1"><a>导航</a>
+                        <ul class="p2">
+                            <li class="s2"><a><span id="dianji1" style="cursor:pointer">基本信息</span></a></li>
+                            <li class="s2"><a><span id="dianji2" style="cursor:pointer">教育背景</span></a></li>
+                            <li class="s2"><a><span id="dianji3" style="cursor:pointer">工作经历</span></a></li>
+                            <li class="s2"><a><span id="dianji4" style="cursor:pointer">技能证书</span></a></li>
+                            <li class="s2"><a><span id="dianji5" style="cursor:pointer">自我评价</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="biaotou">
+        <p>个人简历</p>
+    </div>
+    <div class="mybody">
+        <div id="body1">
+
+            <div class="gerenxinxi">
+                <div class="xinxi1">
+                    <b>
+                        <p>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</p>
+                        <p>名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族</p>
+                        <p>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话</p>
+                        <p>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</p>
+                        <p>籍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贯</p>
+                        <p>求职意向</p>
+                    </b>
+                </div>
+                <div class="xinxi2">
+                    <p>张根铭</p>
+                    <p>汉族</p>
+                    <p>18180820306</p>
+                    <p>276841902@qq.com</p>
+                    <p>四川眉山</p>
+                    <p>前端开发</p>
+                </div>
+                <div class="xinxi3">
+                    <b>
+                        <p>出生年月</p>
+                        <p>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高</p>
+                        <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历</p>
+                        <p>毕业院校</p>
+                        <p>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业</p>
+                    </b>
+                </div>
+                <div class="xinxi4">
+                    <p>1992.6</p>
+                    <p>175</p>
+                    <p>本科</p>
+                    <p>西南石油大学</p>
+                    <p>机械工程及自动化</p>
+                </div>
+                <div class="xinxi5">
+                    <img src="http://ww2.sinaimg.cn/large/006HJ39wgy1ferychdio2j31kw2a6qv7.jpg">
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="body2">
+            <div class="tou"><p style="text-indent:1em">教育背景</p></div>
+            <div style="margin-top: 10px;">
+                <div style="float: left;width: 200px;">2011.09-2015.06</div>
+                <div style="float: left;width: 180px;">西南石油大学</div>
+                <div style="float: left;width: 250px;">机械工程及自动化（本科）</div>
+                <div class="clear"></div>
+            </div>
+            <div>
+                <p><b>主修课程：</b></p>
+                <p style="text-indent:2em">机械原理、机械设计、理论力学、材料力学、流体力学、工程材料及热处理、机械制造、液压与控制、机械CAD/CAM、Creo、单片机原理、PLC、工业机器人等。</p>
+                <p><b>自学课程：</b></p>
+                <p style="text-indent:2em">VB、JAVA</p>
+            </div>
+        </div>
+        <div id="body3">
+            <div class="tou"><p style="text-indent:1em">工作经历</p></div>
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">2013.09-2014.8</a></li>
+                    <li><a href="#tabs-2">2015.06-2016.05</a></li>
+                    <li><a href="#tabs-3">2016.09-2016.12</a></li>
+                    <li><a href="#tabs-4">2017.01至今</a></li>
+                </ul>
+                <div id="tabs-4">
+                    <div>
+                        <div style="float: left;width: 300px">滴滴顺丰车</div>
+                        <div style="float: left">兼职司机</div>
+                        <div class="clear"></div>
+                    </div>
+                    <p style="text-indent: 2em">白天主要完成顺风车跨城订单，晚上进行前端开发的学习，目前已学习并掌握的有HTML、CSS、JavaScript、Jquery、Bootstrap、Sass、Vue、Node.</p>
+                    <p style="text-indent: 2em">期间，通过与形形色色的乘客交流，让自己在与人交流上获得了较大的提升。</p>
+                </div>
+                <div id="tabs-3">
+                    <div>
+                        <div style="float: left;width: 300px">成都道勤数控刀具有限公司</div>
+                        <div style="float: left">研发员</div>
+                        <div class="clear"></div>
+                    </div>
+                    <p style="text-indent: 2em">根据客户要求，完成初步方案交于销售部，销售部和客户签订合同后，完成数控刀具非标的二维、三维设计及生产跟踪。</p>
+                    <p style="text-indent: 2em">在职期间，完成十余种非标准数控刀具的全程设计并加工。</p>
+                </div>
+                <div id="tabs-2">
+                    <div>
+                        <div style="float: left;width: 300px">四川省威尔敦化工有限公司</div>
+                        <div style="float: left">机械工程师</div>
+                        <div class="clear"></div>
+                    </div>
+                    <p style="text-indent: 2em">根据招投标市场需要，负责新产品的研发、对公司目前的产品进行降本、标书制作等工作。作为项目的主研人员，负责建立项目方案、搭建团队，带领团队实施计划，根据理论分析与实验分析不断调整计划并实施，最终完成项目。</p>
+                    <p style="text-indent: 2em">在职期间，主研一种防溅阀的开发，可应对大庆招投标市场，并且能在西南地区进行推广。参与多种公司已有产品的降本项目，其中一项能在2016年至 2017 上半年招投标市场中节约超过50万。积极参与公司组织的各项活动，如计算机竞赛：获得办公软件Office “一等奖”、PS“二等奖”、Auto CAD“二等奖”、Creo“二等奖”。</p>
+                </div>
+                <div id="tabs-1">
+                    <div>
+                        <div style="float: left;width: 300px">西南石油大学工程训练中心</div>
+                        <div style="float: left">教师助理</div>
+                        <div class="clear"></div>
+                    </div>
+                    <p style="text-indent: 2em">主要负责给大一新生讲解机械零部件展柜和摩托车发动机原理，辅助老师完成正常教学与办公，参与到老师的项目之中。</p>
+                    <p style="text-indent: 2em">在职期间，参加过办公软件、新闻写作与摄影、网页设计等方面的培训，多次参与项目，对各种机床及3D打印机都有涉及。</p>
+                </div>
+            </div>
+        </div>
+        <div id="body4">
+            <div class="tou"><p style="text-indent:1em">技能证书</p></div>
+            <div style="float: left;width: 200px;">
+                <ul style="list-style:none;"><b>获得证书</b>
+                    <li style="text-indent:2em">大学英语四级</li>
+                    <li style="text-indent:2em">计算机VB二级</li>
+                    <li style="text-indent:2em">C1驾照</li>
+                </ul>
+            </div>
+            <div style="float: left;">
+                <ul style="list-style:none;"><b>计算机软件水平</b>
+                    <li style="text-indent:2em">精通：Auto Cad/Creo/SolidWorks/Office</li>
+                    <li style="text-indent:2em">熟练：PS/VB/Java/HTML/CSS/JavaScript/Jquery/Bootstrap</li>
+                    <li style="text-indent:2em">掌握：Sass/Vue/Node</li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="body5">
+            <div class="tou"><p style="text-indent:1em">自我评价</p></div>
+            <p style="text-indent:2em">本人做人真诚，做事认真负责，积极务实，敢于主动承担责任，能坚持，有执行能力，勤奋，善于学习自己感兴趣的知识和事物。</p>
+            <p style="text-indent:2em">本人虽毕业于非计算机专业，但对计算机软件感兴趣，大学期间，我以专业前15%成绩毕业，除此之外，我还积极参与校园生活，在大学期间作为教师助理，帮助老师给大一新生讲解机械零部件展柜和摩托车发动机原理，辅助老师完成正常教学与办公，另外我还参与到老师的项目之中，跟着老师学习到了很多课本中学不到但是很有用的知识。另外利用课余时间自学VB及JAVA。毕业设计则选择了3D打印机切片软件算法研究，最终用VB完成STL格式文件添加树状支撑的软件编写。</p>
+            <p style="text-indent:2em">希望贵公司能给予我实习的机会，我将会以最饱满的热情踏入这一份工作。</p>
+        </div>
+    </div>
+    <div>
+        <div class="weibu">
+            <div style="text-align: right;margin:0 auto;width: 300px;height:100px;background-color: #999;">
+                <ul style="list-style:none;>
+                    <li style="float: left;left: 300px;"><a href="http://ww4.sinaimg.cn/large/006HJ39wgy1fes4buicy9j30go0goq4d.jpg">
+                        <img style="width: 100px;" src="http://ww4.sinaimg.cn/large/006HJ39wgy1fes4buicy9j30go0goq4d.jpg" alt="" />
+                    </a></li>
+                    <li style="float: left"><a href="http://ww2.sinaimg.cn/large/006HJ39wgy1fes4buhyo6j30go0go3zx.jpg">
+                        <img style="width: 100px;" src="http://ww2.sinaimg.cn/large/006HJ39wgy1fes4buhyo6j30go0go3zx.jpg" alt="" />
+                    </a></li>
+                    <li style="float: left"><a href="http://ww2.sinaimg.cn/large/006HJ39wgy1fes4buf5z9j30go0got9p.jpg">
+                        <img style="width: 100px;" src="http://ww2.sinaimg.cn/large/006HJ39wgy1fes4buf5z9j30go0got9p.jpg" alt="" />
+                    </a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
